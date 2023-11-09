@@ -38,8 +38,9 @@ fun HomeScreenPreview() {
     HomeScreen()
 }
 
+
 @Composable
-fun MusicScreen() {
+fun EpgScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,58 +48,7 @@ fun MusicScreen() {
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Music View",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MusicScreenPreview() {
-    MusicScreen()
-}
-
-@Composable
-fun MoviesScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.colorPrimaryDark))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Movies View",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MoviesScreenPreview() {
-    MoviesScreen()
-}
-
-
-@Composable
-fun BooksScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.colorPrimaryDark))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Books View",
+            text = "EPG View",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -111,30 +61,5 @@ fun BooksScreen() {
 @Preview(showBackground = true)
 @Composable
 fun BooksScreenPreview() {
-    BooksScreen()
-}
-
-@Composable
-fun ProfileScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.colorPrimaryDark))
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Profile View",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 25.sp
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ProfileScreenPreview() {
-    ProfileScreen()
+    EpgScreen()
 }

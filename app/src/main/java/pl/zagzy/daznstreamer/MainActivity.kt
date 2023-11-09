@@ -58,17 +58,8 @@ fun Navigation(navController: NavHostController) {
         composable(NavigationItem.Home.route) {
             HomeScreen()
         }
-        composable(NavigationItem.Music.route) {
-            MusicScreen()
-        }
-        composable(NavigationItem.Movies.route) {
-            MoviesScreen()
-        }
-        composable(NavigationItem.Books.route) {
-            BooksScreen()
-        }
-        composable(NavigationItem.Profile.route) {
-            ProfileScreen()
+        composable(NavigationItem.Epg.route) {
+            EpgScreen()
         }
     }
 }
@@ -92,10 +83,7 @@ fun TopBarPreview() {
 fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         NavigationItem.Home,
-        NavigationItem.Music,
-        NavigationItem.Movies,
-        NavigationItem.Books,
-        NavigationItem.Profile
+        NavigationItem.Epg,
     )
     BottomNavigation(
         backgroundColor = colorResource(id = R.color.colorPrimary),

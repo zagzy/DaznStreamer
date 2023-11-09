@@ -54,9 +54,9 @@ fun MainScreenPreview() {
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController, startDestination = NavigationItem.Home.route) {
-        composable(NavigationItem.Home.route) {
-            HomeScreen()
+    NavHost(navController, startDestination = NavigationItem.Events.route) {
+        composable(NavigationItem.Events.route) {
+            EventsScreen()
         }
         composable(NavigationItem.Epg.route) {
             EpgScreen()
@@ -82,7 +82,7 @@ fun TopBarPreview() {
 @Composable
 fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
-        NavigationItem.Home,
+        NavigationItem.Events,
         NavigationItem.Epg,
     )
     BottomNavigation(

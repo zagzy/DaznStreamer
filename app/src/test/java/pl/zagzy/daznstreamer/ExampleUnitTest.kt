@@ -1,4 +1,4 @@
-package com.example.bottomnavigationbarcomposeexample
+package pl.zagzy.daznstreamer
 
 import org.junit.Test
 

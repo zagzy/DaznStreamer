@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.example.bottomnavigationbarcomposeexample.MainActivity"
+            android:name="pl.zagzy.daznstreamer.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

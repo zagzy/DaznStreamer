@@ -1,4 +1,4 @@
-package com.example.bottomnavigationbarcomposeexample
+package pl.zagzy.daznstreamer
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

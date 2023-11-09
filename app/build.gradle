@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.johncodeos.bottomnavigationbarcomposeexample"
+        applicationId "pl.zagzy.daznstreamer"
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -43,7 +43,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'com.example.bottomnavigationbarcomposeexample'
+    namespace 'pl.zagzy.daznstreamer'
 }
 
 dependencies {

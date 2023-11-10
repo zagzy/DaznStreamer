@@ -12,7 +12,7 @@ import javax.inject.Inject
 class ScheduleViewModelImpl @Inject constructor(
     scheduleRepository: ScheduleRepository
 ) : ScheduleViewModel, ViewModel() {
-    override val schedule: Flow<List<Schedule>> = scheduleRepository.getAllSchedule()
+    override val schedule: Flow<List<Schedule>> = scheduleRepository.allSchedule
 }
 
 object ScheduleViewModelPreview : ScheduleViewModel, ViewModel() {

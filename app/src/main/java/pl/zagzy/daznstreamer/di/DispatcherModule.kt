@@ -10,8 +10,6 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import pl.zagzy.daznstreamer.data.remote.DaznRemoteRepository
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Qualifier
 
 @Module
@@ -35,12 +33,7 @@ object DispatcherModule {
         context.contentResolver
 
     @Provides
-    fun providesRemoteRepository(): DaznRemoteRepository =
-        Retrofit.Builder()
-            .baseUrl("https://us-central1-dazn-sandbox.cloudfunctions.net")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(DaznRemoteRepository::class.java)
+    fun providesRemoteRepository(): DaznRemoteRepository = DaznRemoteRepository.getInstance()
 }
 
 @Retention(AnnotationRetention.BINARY)

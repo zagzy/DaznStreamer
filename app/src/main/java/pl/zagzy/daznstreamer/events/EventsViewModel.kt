@@ -12,7 +12,7 @@ import javax.inject.Inject
 class EventsViewModelImpl @Inject constructor(
     eventsRepository: EventsRepository
 ) : EventsViewModel, ViewModel() {
-    override val events: Flow<List<Event>> = eventsRepository.getAllEvents()
+    override val events: Flow<List<Event>> = eventsRepository.allEvents
 }
 
 object EventsViewModelPreview : EventsViewModel, ViewModel() {

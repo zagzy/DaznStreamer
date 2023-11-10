@@ -2,6 +2,8 @@ package pl.zagzy.daznstreamer.data.remote
 
 import pl.zagzy.daznstreamer.data.model.EventApi
 import pl.zagzy.daznstreamer.data.model.ScheduleApi
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface DaznRemoteRepository {
@@ -10,5 +12,13 @@ interface DaznRemoteRepository {
 
     @GET("getSchedule")
     suspend fun getSchedule(): List<ScheduleApi>
+
+    companion object {
+        fun getInstance(): DaznRemoteRepository = Retrofit.Builder()
+            .baseUrl("https://us-central1-dazn-sandbox.cloudfunctions.net")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(DaznRemoteRepository::class.java)
+    }
 }
 

@@ -26,7 +26,7 @@ fun ScheduleRow(event: Schedule) {
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 4.dp, vertical = 4.dp)
+            .padding(horizontal = 4.dp, vertical = 2.dp)
     ) {
         Row(
             modifier = Modifier
@@ -40,7 +40,7 @@ fun ScheduleRow(event: Schedule) {
             )
             Column(
                 modifier = Modifier
-                    .padding(4.dp)
+                    .padding(8.dp)
                     .fillMaxWidth(),
             ) {
                 Text(

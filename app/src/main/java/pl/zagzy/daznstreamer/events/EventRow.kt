@@ -31,7 +31,7 @@ fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 4.dp, vertical = 4.dp)
+            .padding(horizontal = 4.dp, vertical = 2.dp)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(
@@ -53,7 +53,7 @@ fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
             )
             Column(
                 modifier = Modifier
-                    .padding(4.dp)
+                    .padding(8.dp)
                     .fillMaxWidth(),
             ) {
                 Text(
@@ -74,9 +74,6 @@ fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
                     style = MaterialTheme.typography.subtitle2,
                 )
             }
-
         }
-
     }
-
 }

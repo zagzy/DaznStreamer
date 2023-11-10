@@ -27,6 +27,7 @@ class EventsRepository @Inject constructor(
 
     fun getAllEvents(
     ): Flow<List<Event>> = flow {
-        emit(remoteRepository.getEvents().map(EventApi::toDomain))
+        // would be nice to cache those remote requests in latter iterations
+        emit(remoteRepository.getEvents().map(EventApi::toDomain).sortedBy { it.date })
     }.flowOn(dispatcher)
 }

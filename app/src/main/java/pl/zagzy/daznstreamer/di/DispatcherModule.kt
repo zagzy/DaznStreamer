@@ -1,11 +1,8 @@
 package pl.zagzy.daznstreamer.di
 
-import android.content.ContentResolver
-import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -26,11 +23,6 @@ object DispatcherModule {
     @MainDispatcher
     @Provides
     fun providesMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
-
-
-    @Provides
-    fun providesContentResolver(@ApplicationContext context: Context): ContentResolver =
-        context.contentResolver
 
     @Provides
     fun providesRemoteRepository(): DaznRemoteRepository = DaznRemoteRepository.getInstance()

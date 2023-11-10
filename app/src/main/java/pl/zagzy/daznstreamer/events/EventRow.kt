@@ -24,7 +24,7 @@ import coil.compose.rememberAsyncImagePainter
 import pl.zagzy.daznstreamer.domain.model.Event
 
 @Composable
-fun EventRow(event: Event) {
+fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
 
     Card(
         elevation = 4.dp,
@@ -38,7 +38,7 @@ fun EventRow(event: Event) {
                     color = Color.Black
                 ),
                 onClick = {
-
+                    onEventSelected(event)
                 })
     ) {
         Row(

@@ -16,7 +16,7 @@ class EventsRepository @Inject constructor(
     private val remoteRepository: DaznRemoteRepository,
 ) {
     val allEvents: Flow<List<Event>> = flow {
-        // would be nice to cache those remote requests in latter iterations
+        // would be nice to cache remote requests in latter iterations
         emit(remoteRepository.getEvents().map(EventApi::toDomain).sortedBy { it.date })
     }.flowOn(dispatcher)
 }

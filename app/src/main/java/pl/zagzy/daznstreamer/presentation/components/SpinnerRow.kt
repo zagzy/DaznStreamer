@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer.events
+package pl.zagzy.daznstreamer.presentation.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -17,7 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import pl.zagzy.daznstreamer.domain.model.AbstractSchedule
 import pl.zagzy.daznstreamer.domain.model.LoadingPlaceholder
 import pl.zagzy.daznstreamer.domain.model.Schedule
-import pl.zagzy.daznstreamer.events.SpinnerRow
+import pl.zagzy.daznstreamer.presentation.components.SpinnerRow
 
 @Composable
 fun ScheduleScreen(vm: ScheduleViewModel = hiltViewModel<ScheduleViewModelImpl>()) {

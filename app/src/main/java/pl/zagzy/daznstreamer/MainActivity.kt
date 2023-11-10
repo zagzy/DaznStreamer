@@ -28,6 +28,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import pl.zagzy.daznstreamer.events.EventsScreen
+import pl.zagzy.daznstreamer.schedule.ScheduleScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -67,7 +68,7 @@ fun Navigation(navController: NavHostController) {
             EventsScreen()
         }
         composable(NavigationItem.Epg.route) {
-            EpgScreen()
+            ScheduleScreen()
         }
     }
 }

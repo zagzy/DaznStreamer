@@ -1,24 +1,21 @@
 package pl.zagzy.daznstreamer.domain.model
 
-import pl.zagzy.daznstreamer.data.model.EventApi
+import pl.zagzy.daznstreamer.data.model.ScheduleApi
 
-data class Event(
+data class Schedule(
     val id: Int,
     val title: String,
     val subtitle: String,
     val date: String,
     val imageUrl: String,
-    val videoUrl: String,
-) : java.io.Serializable, AbstractEvent
+) : java.io.Serializable, AbstractSchedule
 
-sealed interface AbstractEvent
+sealed interface AbstractSchedule
 
-
-fun EventApi.toDomain() = Event(
+fun ScheduleApi.toDomain() = Schedule(
     id = id,
     title = title,
     subtitle = subtitle,
     date = date,
     imageUrl = imageUrl,
-    videoUrl = videoUrl
 )

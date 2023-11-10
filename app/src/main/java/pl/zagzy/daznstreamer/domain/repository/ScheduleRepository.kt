@@ -4,20 +4,21 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import pl.zagzy.daznstreamer.data.model.EventApi
+import pl.zagzy.daznstreamer.data.model.ScheduleApi
 import pl.zagzy.daznstreamer.data.remote.DaznRemoteRepository
 import pl.zagzy.daznstreamer.di.IoDispatcher
-import pl.zagzy.daznstreamer.domain.model.Event
+import pl.zagzy.daznstreamer.domain.model.Schedule
 import pl.zagzy.daznstreamer.domain.model.toDomain
 import javax.inject.Inject
 
-class EventsRepository @Inject constructor(
+class ScheduleRepository @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
     private val remoteRepository: DaznRemoteRepository,
 ) {
-    fun getAllEvents(
-    ): Flow<List<Event>> = flow {
+
+    fun getAllSchedule(
+    ): Flow<List<Schedule>> = flow {
         // would be nice to cache those remote requests in latter iterations
-        emit(remoteRepository.getEvents().map(EventApi::toDomain).sortedBy { it.date })
+        emit(remoteRepository.getSchedule().map(ScheduleApi::toDomain).sortedBy { it.date })
     }.flowOn(dispatcher)
 }

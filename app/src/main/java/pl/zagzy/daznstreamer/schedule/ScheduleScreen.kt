@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer.events
+package pl.zagzy.daznstreamer.schedule
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,15 +14,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import pl.zagzy.daznstreamer.domain.model.AbstractEvent
-import pl.zagzy.daznstreamer.domain.model.Event
+import pl.zagzy.daznstreamer.domain.model.AbstractSchedule
 import pl.zagzy.daznstreamer.domain.model.LoadingPlaceholder
-
+import pl.zagzy.daznstreamer.domain.model.Schedule
+import pl.zagzy.daznstreamer.events.SpinnerRow
 
 @Composable
-fun EventsScreen(vm: EventsViewModel = hiltViewModel<EventsViewModelImpl>()) {
+fun ScheduleScreen(vm: ScheduleViewModel = hiltViewModel<ScheduleViewModelImpl>()) {
 
-    val events: List<AbstractEvent> by vm.events.collectAsState(listOf(LoadingPlaceholder))
+    val schedule: List<AbstractSchedule> by vm.schedule.collectAsState(listOf(LoadingPlaceholder))
 
     Column(
         modifier = Modifier
@@ -34,9 +34,9 @@ fun EventsScreen(vm: EventsViewModel = hiltViewModel<EventsViewModelImpl>()) {
             horizontalAlignment = Alignment.CenterHorizontally,
             contentPadding = PaddingValues(horizontal = 2.dp, vertical = 0.dp)
         ) {
-            items(items = events) { event ->
-                when (event) {
-                    is Event -> EventRow(event = event)
+            items(items = schedule) { schedule ->
+                when (schedule) {
+                    is Schedule -> ScheduleRow(event = schedule)
                     is LoadingPlaceholder -> SpinnerRow()
                 }
             }
@@ -46,7 +46,6 @@ fun EventsScreen(vm: EventsViewModel = hiltViewModel<EventsViewModelImpl>()) {
 
 @Preview(showBackground = true)
 @Composable
-fun EventsScreenPreview() {
-    EventsScreen(vm = EventsViewModelPreview)
+fun ScheduleScreenPreview() {
+    ScheduleScreen(vm = ScheduleViewModelPreview)
 }
-

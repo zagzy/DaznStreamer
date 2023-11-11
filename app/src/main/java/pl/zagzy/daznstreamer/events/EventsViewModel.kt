@@ -4,15 +4,23 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import pl.zagzy.daznstreamer.Timer
 import pl.zagzy.daznstreamer.domain.model.Event
 import pl.zagzy.daznstreamer.domain.repository.EventsRepository
+import pl.zagzy.daznstreamer.utils.extensions.setDateRelative
 import javax.inject.Inject
 
 @HiltViewModel
 class EventsViewModelImpl @Inject constructor(
-    eventsRepository: EventsRepository
+    eventsRepository: EventsRepository,
+    timer: Timer,
 ) : EventsViewModel, ViewModel() {
-    override val events: Flow<List<Event>> = eventsRepository.allEvents
+
+    override val events: Flow<List<Event>> =
+        eventsRepository.allEvents.map { events ->
+            events.map { it.setDateRelative(timer.currentTimeMs) }
+        }
 }
 
 object EventsViewModelPreview : EventsViewModel, ViewModel() {

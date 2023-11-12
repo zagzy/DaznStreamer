@@ -12,13 +12,16 @@ open class DateTimeFormatter @Inject constructor(
 ) {
     fun getDateRelative(dateIso8601: String): String =
         getFormattedDateRelativeToCurrent(
-            currentTime.currentTimeMs,
-            convertIso8601ToTimestamp(dateIso8601)
+            currentDateMs = currentTime.currentTimeMs,
+            specificDateMs = convertIso8601ToTimestamp(dateIso8601)
         )
 
-    private fun getFormattedDateRelativeToCurrent(currentTimeMs: Long, dateTimeMs: Long): String {
-        val currentDate = DateTime(currentTimeMs)
-        val specificDate = DateTime(dateTimeMs)
+    private fun getFormattedDateRelativeToCurrent(
+        currentDateMs: Long,
+        specificDateMs: Long
+    ): String {
+        val currentDate = DateTime(currentDateMs)
+        val specificDate = DateTime(specificDateMs)
 
         return when (Days.daysBetween(currentDate, specificDate).days) {
             -1 -> "Yesterday, ${formattedTime(specificDate)}"
@@ -32,10 +35,10 @@ open class DateTimeFormatter @Inject constructor(
 
     private fun formattedTime(specificDate: DateTime): String = specificDate.toString("HH:mm")
 
-    private fun convertIso8601ToTimestamp(iso8601String: String): Long {
-        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+    private fun convertIso8601ToTimestamp(iso8601date: String): Long {
+        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale("pl", "PL"))
         sdf.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
-        val date = sdf.parse(iso8601String)
+        val date = sdf.parse(iso8601date)
         return date?.time ?: 0
     }
 }

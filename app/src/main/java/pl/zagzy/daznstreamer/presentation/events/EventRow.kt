@@ -19,14 +19,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import pl.zagzy.daznstreamer.R
 import pl.zagzy.daznstreamer.domain.model.Event
 
 @Composable
 fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
 
     Card(
+        backgroundColor = colorResource(id = R.color.colorBg),
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier

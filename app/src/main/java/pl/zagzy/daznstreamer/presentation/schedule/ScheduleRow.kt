@@ -14,14 +14,17 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import pl.zagzy.daznstreamer.R
 import pl.zagzy.daznstreamer.domain.model.Schedule
 
 @Composable
 fun ScheduleRow(event: Schedule) {
 
     Card(
+        backgroundColor = colorResource(id = R.color.colorBg),
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier

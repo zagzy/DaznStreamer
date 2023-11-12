@@ -15,7 +15,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.time.Duration.Companion.seconds
 
-
 @Singleton
 class ScheduleRepository @Inject constructor(
     private val scope: CoroutineScope,

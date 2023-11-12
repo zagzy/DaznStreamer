@@ -67,7 +67,7 @@ fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
                 Spacer(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(48.dp)
+                        .height(30.dp)
                 )
                 Text(
                     text = event.date,

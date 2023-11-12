@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer.schedule
+package pl.zagzy.daznstreamer.presentation.schedule
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

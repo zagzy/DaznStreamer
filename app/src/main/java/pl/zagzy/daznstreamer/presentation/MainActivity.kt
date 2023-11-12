@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer
+package pl.zagzy.daznstreamer.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -27,8 +27,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import pl.zagzy.daznstreamer.events.EventsScreen
-import pl.zagzy.daznstreamer.schedule.ScheduleScreen
+import pl.zagzy.daznstreamer.R
+import pl.zagzy.daznstreamer.presentation.events.EventsScreen
+import pl.zagzy.daznstreamer.presentation.schedule.ScheduleScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

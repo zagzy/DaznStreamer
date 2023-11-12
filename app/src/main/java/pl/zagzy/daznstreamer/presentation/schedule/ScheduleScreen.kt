@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer.schedule
+package pl.zagzy.daznstreamer.presentation.schedule
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

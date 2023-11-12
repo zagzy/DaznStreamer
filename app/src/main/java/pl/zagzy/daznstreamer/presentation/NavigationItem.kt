@@ -1,4 +1,6 @@
-package pl.zagzy.daznstreamer
+package pl.zagzy.daznstreamer.presentation
+
+import pl.zagzy.daznstreamer.R
 
 sealed class NavigationItem(var route: String, var icon: Int, var title: String) {
     data object Events : NavigationItem("home", R.drawable.ic_movie, "Events")

@@ -70,7 +70,7 @@ fun EventRow(event: Event, onEventSelected: (Event) -> Unit) {
                         .height(30.dp)
                 )
                 Text(
-                    text = event.date,
+                    text = event.dateRelative,
                     style = MaterialTheme.typography.subtitle2,
                 )
             }

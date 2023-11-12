@@ -1,10 +1,7 @@
 package pl.zagzy.daznstreamer.presentation.components
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
@@ -20,22 +17,17 @@ fun ExoPlayerDialog(
         properties = DialogProperties(usePlatformDefaultWidth = false),
         onDismissRequest = onDismissRequest,
         content = {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+            DisposableEffect(
+                AndroidView(
+                    factory = { context ->
+                        PlayerView(context).apply {
+                            player = exoPlayer
+                        }
+                    },
+                )
             ) {
-                DisposableEffect(
-                    AndroidView(
-                        factory = { context ->
-                            PlayerView(context).apply {
-                                player = exoPlayer
-                            }
-                        },
-                    )
-                ) {
-                    onDispose {
-                        exoPlayer.pause()
-                    }
+                onDispose {
+                    exoPlayer.pause()
                 }
             }
         },

@@ -12,6 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner
 import pl.zagzy.daznstreamer.utils.CurrentTime
 import pl.zagzy.daznstreamer.utils.DateTimeFormatter
 
+// add docs, icon, bg
 @RunWith(MockitoJUnitRunner::class)
 class DateTimeFormatterTest {
 
@@ -29,19 +30,19 @@ class DateTimeFormatterTest {
     @Test
     fun shouldFormatDateRespectively1() {
         val dateRelative = dateTimeFormatter.getDateRelative("2023-11-10T05:00:00.000Z")
-        MatcherAssert.assertThat(dateRelative, `is`("Yesterday, 06:00"))
+        MatcherAssert.assertThat(dateRelative, `is`("Yesterday, 05:00"))
     }
 
     @Test
     fun shouldFormatDateRespectively2() {
         val dateRelative = dateTimeFormatter.getDateRelative("2023-11-12T05:00:00.000Z")
-        MatcherAssert.assertThat(dateRelative, `is`("Today, 06:00"))
+        MatcherAssert.assertThat(dateRelative, `is`("Today, 05:00"))
     }
 
     @Test
     fun shouldFormatDateRespectively3() {
         val dateRelative = dateTimeFormatter.getDateRelative("2023-11-13T05:00:00.000Z")
-        MatcherAssert.assertThat(dateRelative, `is`("Tomorrow, 06:00"))
+        MatcherAssert.assertThat(dateRelative, `is`("Tomorrow, 05:00"))
     }
 
     @Test

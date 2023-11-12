@@ -11,6 +11,7 @@ import pl.zagzy.daznstreamer.data.model.ScheduleApi
 import pl.zagzy.daznstreamer.data.remote.DaznRemoteRepository
 import pl.zagzy.daznstreamer.domain.model.Schedule
 import pl.zagzy.daznstreamer.domain.model.toDomain
+import pl.zagzy.daznstreamer.utils.DateTimeFormatter
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.time.Duration.Companion.seconds
@@ -18,6 +19,7 @@ import kotlin.time.Duration.Companion.seconds
 @Singleton
 class ScheduleRepository @Inject constructor(
     private val scope: CoroutineScope,
+    private val dateTimeFormatter: DateTimeFormatter,
     private val remoteRepository: DaznRemoteRepository,
 ) {
 
@@ -31,9 +33,9 @@ class ScheduleRepository @Inject constructor(
     private fun plantRefreshAllSchedule() {
         scope.launch {
             while (currentCoroutineContext().isActive) {
-                allScheduleSharedFlow.emit(
-                    remoteRepository.getSchedule().map(ScheduleApi::toDomain).sortedBy { it.date }
-                )
+                allScheduleSharedFlow.emit(remoteRepository.getSchedule()
+                    .sortedBy(ScheduleApi::dateIso8601)
+                    .map { it.toDomain(dateTimeFormatter) })
                 delay(30.seconds)
             }
         }

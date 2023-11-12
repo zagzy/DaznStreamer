@@ -34,7 +34,7 @@ open class DateTimeFormatter @Inject constructor(
 
     private fun convertIso8601ToTimestamp(iso8601String: String): Long {
         val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-        sdf.timeZone = TimeZone.getTimeZone("UTC")
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
         val date = sdf.parse(iso8601String)
         return date?.time ?: 0
     }

@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer.presentation
+package pl.zagzy.daznstreamer.presentation.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -1,4 +1,4 @@
-package pl.zagzy.daznstreamer.presentation
+package pl.zagzy.daznstreamer.presentation.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -28,6 +28,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import pl.zagzy.daznstreamer.R
+import pl.zagzy.daznstreamer.presentation.NavigationItem
 import pl.zagzy.daznstreamer.presentation.events.EventsScreen
 import pl.zagzy.daznstreamer.presentation.schedule.ScheduleScreen
 

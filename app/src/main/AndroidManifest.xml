@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="pl.zagzy.daznstreamer.presentation.DaznStreamer"
+        android:name="pl.zagzy.daznstreamer.presentation.app.DaznStreamer"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme.NoActionBar">
 
         <activity
-            android:name="pl.zagzy.daznstreamer.presentation.MainActivity"
+            android:name="pl.zagzy.daznstreamer.presentation.app.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

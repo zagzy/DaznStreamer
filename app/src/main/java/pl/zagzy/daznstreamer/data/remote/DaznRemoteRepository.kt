@@ -15,10 +15,14 @@ interface DaznRemoteRepository {
 
     companion object {
         fun getInstance(): DaznRemoteRepository = Retrofit.Builder()
-            .baseUrl("https://us-central1-dazn-sandbox.cloudfunctions.net")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(DaznRemoteRepository::class.java)
+
+        private const val BASE_URL = "https://us-central1-dazn-sandbox.cloudfunctions.net"
     }
+
+
 }
 

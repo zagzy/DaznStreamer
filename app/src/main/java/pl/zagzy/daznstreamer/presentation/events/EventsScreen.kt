@@ -30,13 +30,10 @@ import pl.zagzy.daznstreamer.presentation.components.SpinnerRow
 @Composable
 fun EventsScreen(vm: EventsViewModel = hiltViewModel<EventsViewModelImpl>()) {
 
-    val events: List<AbstractEvent> by vm.events.collectAsState(listOf(LoadingPlaceholder))
-
-    var showPlaybackDialog by remember { mutableStateOf(false) }
-
     val context = LocalContext.current
-
+    var showPlaybackDialog by remember { mutableStateOf(false) }
     val exoPlayer = remember { ExoPlayer.Builder(context).build() }
+    val events: List<AbstractEvent> by vm.events.collectAsState(listOf(LoadingPlaceholder))
 
     if (showPlaybackDialog) {
         ExoPlayerDialog(exoPlayer, onDismissRequest = { showPlaybackDialog = false })

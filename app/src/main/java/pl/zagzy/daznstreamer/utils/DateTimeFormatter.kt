@@ -7,7 +7,6 @@ import java.util.Locale
 import java.util.TimeZone
 import javax.inject.Inject
 
-
 open class DateTimeFormatter @Inject constructor(
     private val currentTime: CurrentTime
 ) {

@@ -1,8 +1,10 @@
 package pl.zagzy.daznstreamer.utils
 
-import javax.inject.Inject
-
-class CurrentTime @Inject constructor() {
+interface CurrentTime {
     val currentTimeMs: Long
+}
+
+class AndroidTime : CurrentTime {
+    override val currentTimeMs: Long
         get() = System.currentTimeMillis()
 }

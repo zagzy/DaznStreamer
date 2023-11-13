@@ -53,8 +53,8 @@ fun EventsScreen(vm: EventsViewModel = hiltViewModel<EventsViewModelImpl>()) {
                 when (event) {
                     is Event -> EventRow(
                         event = event,
-                        onEventSelected = { event ->
-                            exoPlayer.playSingleUrl(event.videoUrl)
+                        onEventSelected = { eventSelected ->
+                            exoPlayer.playSingleUrl(eventSelected.videoUrl)
                             showPlaybackDialog = true
                         })
 

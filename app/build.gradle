@@ -71,8 +71,6 @@ dependencies {
     // HILT
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation "androidx.hilt:hilt-navigation-compose:1.1.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.9.1'
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     // RETROFIT

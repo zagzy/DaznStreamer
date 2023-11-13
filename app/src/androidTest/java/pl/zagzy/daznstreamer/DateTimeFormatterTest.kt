@@ -12,7 +12,6 @@ import org.mockito.junit.MockitoJUnitRunner
 import pl.zagzy.daznstreamer.utils.CurrentTime
 import pl.zagzy.daznstreamer.utils.DateTimeFormatter
 
-// add docs, icon, bg
 @RunWith(MockitoJUnitRunner::class)
 class DateTimeFormatterTest {
 

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,6 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import pl.zagzy.daznstreamer.domain.model.AbstractEvent
@@ -33,7 +33,9 @@ fun EventsScreen(vm: EventsViewModel = hiltViewModel<EventsViewModelImpl>()) {
     val context = LocalContext.current
     var showPlaybackDialog by remember { mutableStateOf(false) }
     val exoPlayer = remember { ExoPlayer.Builder(context).build() }
-    val events: List<AbstractEvent> by vm.events.collectAsState(listOf(LoadingPlaceholder))
+    val events: List<AbstractEvent> by vm.events.collectAsStateWithLifecycle(
+        listOf(LoadingPlaceholder)
+    )
 
     if (showPlaybackDialog) {
         ExoPlayerDialog(exoPlayer, onDismissRequest = { showPlaybackDialog = false })
